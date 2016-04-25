@@ -9,19 +9,19 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/feed', {
             controller: 'FeedViewController',
-            templateUrl: 'sections/feed.html'
+            templateUrl: '/sections/feed.html'
         })
         .when('/interests', {
             controller: 'InterestViewController',
-            templateUrl: 'sections/interests.html',
+            templateUrl: '/sections/interests.html',
         })
         .when('/saved', {
             controller: 'SavedViewController',
-            templateUrl: 'sections/saved.html',
+            templateUrl: '/sections/saved.html',
         })
         .otherwise({
             controller: 'FeedViewController',
-            templateUrl: 'sections/feed.html'
+            templateUrl: '/sections/feed.html'
         });
 
 }]);

@@ -2,13 +2,13 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserify = require('gulp-browserify');
 
-gulp.task('default', ['html', 'templates', 'js', 'css', 'imgs']);
+gulp.task('default', ['html', 'sections', 'js', 'css', 'imgs']);
 
 gulp.task('html', function () {
     return gulp.src('./*.html')
         .pipe(gulp.dest('./public'));
 });
-gulp.task('templates', function () {
+gulp.task('sections', function () {
     return gulp.src('./sections/*.html')
         .pipe(gulp.dest('./public/sections/'));
 });
@@ -32,7 +32,7 @@ gulp.task('imgs', function () {
 
 gulp.task('watch', function () {
     gulp.watch('./*.html', ['html']);
-    gulp.watch('./templates/*.html', ['templates']);
+    gulp.watch('./sections/*.html', ['templates']);
     gulp.watch('./scss/*.scss', ['css']);
     gulp.watch('./js/*.js', ['js']);
     gulp.watch('./js/models/*.js', ['js']);
