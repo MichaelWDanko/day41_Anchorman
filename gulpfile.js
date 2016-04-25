@@ -32,9 +32,7 @@ gulp.task('imgs', function() {
 
 gulp.task('watch', function() {
     gulp.watch('./*.html', ['html']);
-    gulp.watch('./sections/*.html', ['templates']);
+    gulp.watch('./sections/*.html', ['sections']);
     gulp.watch('./scss/*.scss', ['css']);
     gulp.watch('./js/*.js', ['js']);
-    gulp.watch('./js/models/*.js', ['js']);
-    gulp.watch('./js/views/*.js', ['js']);
 });
