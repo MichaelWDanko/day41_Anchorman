@@ -5,7 +5,7 @@ var angularRoute = require('angular-route');
 var app = angular.module('NewsFeedApp', ['ngRoute']);
 
 /*Create a router*/
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/feed', {
             controller: 'FeedViewController',
@@ -27,19 +27,19 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 /*Create a controller for the Home feed page*/
-app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
+app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function($scope, $http, NewsService) {
     console.log('FeedViewController View');
 }]);
 
 
 /*Create a controller for the Interests page*/
-app.controller('InterestViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
+app.controller('InterestViewController', ['$scope', '$http', 'NewsService', function($scope, $http, NewsService) {
     console.log('InterestViewController View');
 }]);
 
 
 /*Create a controller for the Saved page*/
-app.controller('SavedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
+app.controller('SavedViewController', ['$scope', '$http', 'NewsService', function($scope, $http, NewsService) {
     console.log('SavedViewController View');
 
 
@@ -48,13 +48,13 @@ app.controller('SavedViewController', ['$scope', '$http', 'NewsService', functio
 
 
 /*Create a service to store the data*/
-app.factory('NewsService', function ($http) {
+app.factory('NewsService', function($http) {
     /*Any data we need to store can go in here.*/
     $http({
             method: 'get',
             url: 'http://chat.queencityiron.com/api/news/latest'
         })
-        .then(function (response) {
+        .then(function(response) {
             console.log(response);
         });
     return;

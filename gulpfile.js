@@ -4,33 +4,33 @@ var browserify = require('gulp-browserify');
 
 gulp.task('default', ['html', 'sections', 'js', 'css', 'imgs']);
 
-gulp.task('html', function () {
+gulp.task('html', function() {
     return gulp.src('./*.html')
         .pipe(gulp.dest('./public'));
 });
-gulp.task('sections', function () {
+gulp.task('sections', function() {
     return gulp.src('./sections/*.html')
         .pipe(gulp.dest('./public/sections/'));
 });
 
-gulp.task('css', function () {
+gulp.task('css', function() {
     return gulp.src('./scss/*.scss')
         .pipe(sass())
         .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('js', function () {
-  return gulp.src('./js/app.js')
+gulp.task('js', function() {
+    return gulp.src('./js/app.js')
         .pipe(browserify())
         .pipe(gulp.dest('./public/js'));
 });
 
-gulp.task('imgs', function () {
+gulp.task('imgs', function() {
     return gulp.src('./images/*')
         .pipe(gulp.dest('./public/images'));
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', function() {
     gulp.watch('./*.html', ['html']);
     gulp.watch('./sections/*.html', ['templates']);
     gulp.watch('./scss/*.scss', ['css']);
