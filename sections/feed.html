@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <h1>Feed</h1>
-<div id="article" ng-repeat="article in articles">
-  <h2>{{ article.title }}</h2>
-  <h2>{{ article.publisher }}</h2>
-  <h3>{{ article.time }}</h3>
-  <p>
-    {{ article.description }}
-  </p>
+<div class="article" ng-repeat="article in articles">
+    <a href="{{article.link}}"><h2>{{ article.title }}</h2></a>
+    <h2>{{ article.providerId }}</h2>
+    <h3>{{ article.published }}</h3>
+    <p>
+        {{ article.description }}
+    </p>
 </div>
 <!-- Will need to include some sort of filter option for "interested" and a button for "saved" -->
