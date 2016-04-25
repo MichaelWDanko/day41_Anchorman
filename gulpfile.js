@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserify = require('gulp-browserify');
 
-gulp.task('default', ['html', 'js', 'css']);
+gulp.task('default', ['html', 'js', 'css', 'imgs']);
 
 gulp.task('html', function () {
     return gulp.src('./*.html')
@@ -19,6 +19,11 @@ gulp.task('js', function () {
   return gulp.src('./js/app.js')
         .pipe(browserify())
         .pipe(gulp.dest('./public/js'));
+});
+
+gulp.task('imgs', function () {
+    return gulp.src('./images/*')
+        .pipe(gulp.dest('./public/images'));
 });
 
 gulp.task('watch', function () {
