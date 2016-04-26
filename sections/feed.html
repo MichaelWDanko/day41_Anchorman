@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <h1>Feed</h1>
-<div class="article" ng-repeat="article in articles">
+<div class="article" ng-repeat="article in articles | reverse">
     <a href="{{article.link}}"><h2>{{ article.title }}</h2></a>
-    <h2>{{ article.providerId }}</h2>
+    <h2>{{ article.providerId }}</h2> 
     <h3>{{ article.published }}</h3>
     <button class="save-button" ng-click="saveArticle(article)">Save For Later</button>
     <p>
