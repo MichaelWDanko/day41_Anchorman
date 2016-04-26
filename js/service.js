@@ -2,9 +2,7 @@
 /* jslint esnext: true */
 module.exports = (function () {
 
-//        var filters = angular.module('publisherName', []);
     var service = angular.module('NewsService', []);
-
 
     service.factory('NewsService', function ($http) {
 
@@ -23,7 +21,7 @@ module.exports = (function () {
             console.log(response);
             angular.copy(response.data.stories, stories);
         });
-        
+
         if (publishers.length === 0) {
         $http({
                 method: 'get',
@@ -34,8 +32,8 @@ module.exports = (function () {
                 console.log(response);
                 angular.copy(response.data.providers, publishers);
             });
-        } 
-        
+        }
+
     return {
         getArticles: function () {
             return stories;
@@ -43,28 +41,24 @@ module.exports = (function () {
         saveArticle: function (article) {
             /*Write code to push the saved article to an array.*/
             savedStories.push(article);
-            console.log('article saved.');
         },
         getSavedArticles: function () {
             return savedStories;
         },
         /*Not yet calling this function.*/
         getPublishers: function () {
-            console.log('GetPublishers');
             return publishers;
         },
         saveInterest: function (interest) {
-          console.log('Interest Saved!');
           interests.push(interest);
-          console.log(interests);
         },
         getInterests: function () {
           return interests;
         },
-        removeInterest: function () {
-          
-          console.log(interests);
-        }
-    };
+        removeInterest: function (value) {
+          console.log(interests.indexOf(value));
+          interests.splice(value, 1);
+        },
+      };
     });
 }());
