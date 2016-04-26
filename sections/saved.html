@@ -2,7 +2,7 @@
 <h1 class="pageheader">Saved</h1>
 <div class="article" ng-repeat="saved in articles">
   <h2>{{ saved.title }}</h2>
-  <h2>{{ saved.providerId }}</h2>
+  <h2>{{ saved.providerId | publisherName }}</h2>
   <h3>{{ saved.published }}</h3>
   <p>
     {{ saved.description }}
