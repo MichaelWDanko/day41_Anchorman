@@ -53,7 +53,7 @@ app.controller('InterestViewController', ['$scope', '$http', 'NewsService', func
 /*Create a controller for the Saved page*/
 app.controller('SavedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     console.log('SavedViewController View');
-
+$scope.articles = NewsService.getSavedArticles();
 
 }]);
 
@@ -81,10 +81,14 @@ app.factory('NewsService', function ($http) {
         getArticles: function () {
             return stories;
         },
-        saveArticle: function (article, savedStories) {
+        saveArticle: function (article) {
             /*Write code to push the saved article to an array.*/
             savedStories.push(article);
+            console.log('article saved.');
         },
+        getSavedArticles: function () {
+            return savedStories;
+        }
     };
 
 });

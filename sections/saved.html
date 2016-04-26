@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <h1>Saved</h1>
-<div id="article" ng-repeat="article in articles">
-  <h2>{{ title }}</h2>
-  <h2>{{ publisher }}</h2>
-  <h3>{{ time }}</h3>
+<div id="article" ng-repeat="saved in articles">
+  <h2>{{ saved.title }}</h2>
+  <h2>{{ saved.providerId }}</h2>
+  <h3>{{ saved.published }}</h3>
   <p>
-    {{ description }}
+    {{ saved.description }}
   </p>
 </div>
 <!-- No saved needed, but we need to include whether they are still an "interest" -->
