@@ -56,8 +56,7 @@ module.exports = (function () {
           return interests;
         },
         removeInterest: function (value) {
-          console.log(interests.indexOf(value));
-          interests.splice(value, 1);
+          interests.splice(interests.indexOf(value), 1);
         },
       };
     });
