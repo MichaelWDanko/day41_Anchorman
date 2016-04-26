@@ -63,6 +63,7 @@ app.controller('SavedViewController', ['$scope', '$http', 'NewsService', functio
 app.factory('NewsService', function ($http) {
 
     let stories = [];
+    let savedStories = [];
 
     /*Any data we need to store can go in here.*/
     $http({
@@ -80,9 +81,10 @@ app.factory('NewsService', function ($http) {
         getArticles: function () {
             return stories;
         },
-        saveArticle: function () {
+        saveArticle: function (article, savedStories) {
             /*Write code to push the saved article to an array.*/
-        }
+            savedStories.push(article);
+        },
     };
 
 });
