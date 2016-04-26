@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <h1 class="pageheader">Interests</h1>
-<h2>Interest Label:</h2><input type="text"/>
-<button type="search">Save</button>
-<h2>Existing Labels:</h2>
-<ul>
-  <li ng-repeat="interest in interests">
-    <!-- x image -->
-  </li>
-</ul>
+<div id="interestmain">
+  <h2>Interest Label:</h2><input id="text-box" type="text"/>
+  <button type="search" ng-click="saveInterest()">Save</button>
+  <h2>Existing Labels:</h2>
+  <ul>
+    <li id = "interestlist" ng-repeat="interest in interests">
+      <h3><button id="intbtn" ng-click="removeInterest()">&#10007</button>&nbsp&nbsp{{ interest }}</h3>
+    </li>
+  </ul>
+</div>

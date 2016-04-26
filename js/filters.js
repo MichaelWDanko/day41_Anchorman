@@ -1,8 +1,10 @@
+/* jslint browser: true */
+/* jslint esnext: true */
 module.exports = (function () {
 
     /*This shouldn't be app.filter*/
     var filters = angular.module('publisherName', []);
-    
+
     filters.filter('publisherName', function ($http) {
         let publishers = [];
         if (publishers.length === 0) {

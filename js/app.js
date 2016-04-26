@@ -5,8 +5,6 @@ var angularRoute = require('angular-route');
 require('./filters');
 var app = angular.module('NewsFeedApp', ['ngRoute', 'publisherName']);
 
-
-
 app.filter('reverse', function() {
   return function(items) {
     return items.slice().reverse();
@@ -33,7 +31,6 @@ app.config(['$routeProvider', function ($routeProvider) {
         });
 }]);
 
-
 app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     console.log('FeedViewController View');
 
@@ -47,16 +44,16 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
         NewsService.saveArticle(article);
     };
 
-    //    $scope.publisher = NewsService.getPublishers();
+    //$scope.publisher = NewsService.getPublishers();
 }]);
-
 
 /*Create a controller for the Interests page*/
 app.controller('InterestViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     console.log('InterestViewController View');
 
-    $scope.saveInterest = function (interest) {
-      console.log('Interest saved!');
+    $scope.interests = NewsService.getInterests();
+    $scope.saveInterest = function(){
+      NewsService.saveInterest(document.getElementById('text-box').value);
     };
 }]);
 
@@ -66,8 +63,6 @@ app.controller('SavedViewController', ['$scope', '$http', 'NewsService', functio
     $scope.articles = NewsService.getSavedArticles();
 
 }]);
-
-
 
 /*Create a service to store the data*/
 app.factory('NewsService', function ($http) {
@@ -121,8 +116,13 @@ app.factory('NewsService', function ($http) {
             return publishers;
         },
         saveInterest: function (interest) {
-          
-        }
+          console.log('Interest Saved!');
+          interests.push(interest);
+          console.log(interests);
+        },
+        getInterests: function () {
+          return interests;
+        },
     };
 
 });
