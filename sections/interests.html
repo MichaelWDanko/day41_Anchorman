@@ -6,7 +6,7 @@
   <h2>Existing Labels:</h2>
   <ul>
     <li id = "interestlist" ng-repeat="interest in interests">
-      <h3><button id="intbtn" ng-click="removeInterest()">&#10007</button>&nbsp&nbsp{{ interest }}</h3>
+      <h3><button id="intbtn" ng-click="removeInterest(interest)">&#10007</button>&nbsp&nbsp{{ interest }}</h3>
     </li>
   </ul>
 </div>

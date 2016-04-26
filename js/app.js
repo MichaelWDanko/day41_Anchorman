@@ -58,8 +58,9 @@ app.controller('InterestViewController', ['$scope', '$http', 'NewsService', func
     $scope.saveInterest = function(){
       NewsService.saveInterest(document.getElementById('text-box').value);
     };
-    $scope.removeInterest = function(){
-
+    $scope.removeInterest = function(interest){
+      console.log(interest);
+      NewsService.removeInterest(interest);
     };
 }]);
 
