@@ -4,6 +4,7 @@
     <a href="{{article.link}}"><h2>{{ article.title }}</h2></a>
     <h2>{{ article.providerId }}</h2>
     <h3>{{ article.published }}</h3>
+    <button class="save-button" ng-click="saveArticle(article)">Save For Later</button>
     <p>
         {{ article.description }}
     </p>

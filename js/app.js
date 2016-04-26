@@ -32,8 +32,16 @@ app.config(['$routeProvider', function ($routeProvider) {
 /*Create a controller for the Home feed page*/
 app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     console.log('FeedViewController View');
-
+    
+    /*$scope.articles is the array of the articles*/
     $scope.articles = NewsService.getArticles();
+    
+    /*$scope.saveArticle is run when the save button is clicked.*/
+    $scope.saveArticle = function (article) {
+        console.log('Article save button clicked');
+        console.log(article.title);
+        NewsService.saveArticle(article);
+    };
 }]);
 
 
@@ -41,7 +49,6 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
 app.controller('InterestViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     console.log('InterestViewController View');
 }]);
-
 
 /*Create a controller for the Saved page*/
 app.controller('SavedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
@@ -72,7 +79,10 @@ app.factory('NewsService', function ($http) {
     return {
         getArticles: function () {
             return stories;
+        },
+        saveArticle: function () {
+            /*Write code to push the saved article to an array.*/
         }
-    }
+    };
 
 });
