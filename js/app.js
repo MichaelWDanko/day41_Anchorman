@@ -2,29 +2,10 @@
 /* jslint esnext: true */
 var angular = require('angular');
 var angularRoute = require('angular-route');
-var app = angular.module('NewsFeedApp', ['ngRoute']);
+require('./filters');
+var app = angular.module('NewsFeedApp', ['ngRoute', 'publisherName']);
 
-//app.filter('publisherName', function ($http) {
-//    let publishers = [];
-//    if (publishers.length === 0) {
-//        $http({
-//                method: 'get',
-//                url: 'http://chat.queencityiron.com/api/publishers',
-//            })
-//            .then(function (response) {
-//                publishers = response.data.providers;
-//            });
-//        return "Pending";
-//    } else {
-//        return function (id) {
-//            for (var i = 0; i < publishers.length; i++) {
-//                if (id === publishers[i].id) {
-//                    return publishers[i].name;
-//                }
-//            }
-//        };
-//    }
-//});
+
 
 app.filter('reverse', function() {
   return function(items) {
