@@ -23,6 +23,19 @@ module.exports = (function () {
             console.log(response);
             angular.copy(response.data.stories, stories);
         });
+        
+        if (publishers.length === 0) {
+        $http({
+                method: 'get',
+                url: 'http://chat.queencityiron.com/api/publishers'
+            })
+            .then(function (response) {
+                console.log('response');
+                console.log(response);
+                angular.copy(response.data.providers, publishers);
+            });
+        } 
+        
     return {
         getArticles: function () {
             return stories;
