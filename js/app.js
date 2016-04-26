@@ -58,11 +58,13 @@ app.controller('InterestViewController', ['$scope', '$http', 'NewsService', func
     $scope.saveInterest = function(){
       NewsService.saveInterest(document.getElementById('text-box').value);
     };
+    $scope.removeInterest = function(){
+
+    };
 }]);
 
 /*Create a controller for the Saved page*/
 app.controller('SavedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     console.log('SavedViewController View');
     $scope.articles = NewsService.getSavedArticles();
-
 }]);
