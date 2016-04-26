@@ -4,6 +4,34 @@ var angular = require('angular');
 var angularRoute = require('angular-route');
 var app = angular.module('NewsFeedApp', ['ngRoute']);
 
+//app.filter('publisherName', function ($http) {
+//    let publishers = [];
+//    if (publishers.length === 0) {
+//        $http({
+//                method: 'get',
+//                url: 'http://chat.queencityiron.com/api/publishers',
+//            })
+//            .then(function (response) {
+//                publishers = response.data.providers;
+//            });
+//        return "Pending";
+//    } else {
+//        return function (id) {
+//            for (var i = 0; i < publishers.length; i++) {
+//                if (id === publishers[i].id) {
+//                    return publishers[i].name;
+//                }
+//            }
+//        };
+//    }
+//});
+
+app.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
+
 /*Create a router*/
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -22,26 +50,23 @@ app.config(['$routeProvider', function ($routeProvider) {
         .otherwise({
             redirectTo: '/feed',
         });
-    //        .otherwise({
-    //            controller: 'FeedViewController',
-    //            templateUrl: '/sections/feed.html'
-    //        });
-
 }]);
 
-/*Create a controller for the Home feed page*/
+
 app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     console.log('FeedViewController View');
-    
+
     /*$scope.articles is the array of the articles*/
     $scope.articles = NewsService.getArticles();
-    
+
     /*$scope.saveArticle is run when the save button is clicked.*/
     $scope.saveArticle = function (article) {
         console.log('Article save button clicked');
         console.log(article.title);
         NewsService.saveArticle(article);
     };
+
+    //    $scope.publisher = NewsService.getPublishers();
 }]);
 
 
@@ -53,7 +78,7 @@ app.controller('InterestViewController', ['$scope', '$http', 'NewsService', func
 /*Create a controller for the Saved page*/
 app.controller('SavedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     console.log('SavedViewController View');
-$scope.articles = NewsService.getSavedArticles();
+    $scope.articles = NewsService.getSavedArticles();
 
 }]);
 
@@ -64,6 +89,7 @@ app.factory('NewsService', function ($http) {
 
     let stories = [];
     let savedStories = [];
+    let publishers = [];
 
     /*Any data we need to store can go in here.*/
     $http({
@@ -71,11 +97,25 @@ app.factory('NewsService', function ($http) {
             url: 'http://chat.queencityiron.com/api/news/latest',
         })
         .then(function (response) {
+            console.log('Response of stories');
             console.log(response);
             angular.copy(response.data.stories, stories);
-            console.log('start');
-            console.log(stories);
         });
+
+    /*Testing to see if the publisher's data is cached to improve performance.*/
+    //    if (publishers.length === 0) {
+    //        $http({
+    //                method: 'get',
+    //                url: 'http://chat.queencityiron.com/api/publishers',
+    //            })
+    //            .then(function (response) {
+    //                publishers.push(response.data.providers);
+    //            })
+    //            .then(function () {
+    //                console.log('Publisher information saved');
+    //                console.log(publishers);
+    //            });
+    //    }
 
     return {
         getArticles: function () {
@@ -88,6 +128,11 @@ app.factory('NewsService', function ($http) {
         },
         getSavedArticles: function () {
             return savedStories;
+        },
+        /*Not yet calling this function.*/
+        getPublishers: function () {
+            console.log('GetPublishers');
+            return publishers;
         }
     };
 
