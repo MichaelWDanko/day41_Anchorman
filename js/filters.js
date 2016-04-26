@@ -7,7 +7,7 @@ module.exports = (function () {
 
     filters.filter('publisherName', ['NewsService', function (NewsService) {
         let publishers = NewsService.getPublishers();
-        
+
         return function (id) {
             for (let i = 0; i < publishers.length; i++) {
                 if (publishers[i].id === id) {

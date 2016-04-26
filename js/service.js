@@ -1,9 +1,11 @@
+/* jslint browser: true */
+/* jslint esnext: true */
 module.exports = (function () {
-    
+
 //        var filters = angular.module('publisherName', []);
     var service = angular.module('NewsService', []);
-    
-    
+
+
     service.factory('NewsService', function ($http) {
 
         let stories = [];
@@ -46,6 +48,10 @@ module.exports = (function () {
         getInterests: function () {
           return interests;
         },
+        removeInterest: function () {
+          
+          console.log(interests);
+        }
     };
     });
 }());
