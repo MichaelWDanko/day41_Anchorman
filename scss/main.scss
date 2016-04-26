@@ -3,5 +3,39 @@
 
 .article {
     border: 1px red solid;
-    margin: 5px 0;    
+    margin: 5px 0;
+}
+#logo {
+  width: 100px;
+  height: auto;
+}
+#navbar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000000;
+}
+.navbarli {
+  display: inline;
+  float: left;
+}
+.navbarli a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.navbarli a:hover {
+  background-color: white;
+  color: #000000;
+}
+//This is stuff for the Main Feed View
+#content {
+  @include outer-container;
+}
+.article {
+  @include span-columns(8);
+  @include shift(2);
 }

@@ -12,28 +12,21 @@
 </head>
 
 <body ng-app="NewsFeedApp">
-    <header>
-        <img src="images/channel4.jpg" alt="Channel 4 News">
-        <nav>
-            <ul>
-                <a href="#/feed">
-                    <li>Home</li>
-                </a>
-                <a href="#/interests">
-                    <li>Interests</li>
-                </a>
-                <a href="#/saved">
-                    <li>Saved</li>
-                </a>
-            </ul>
-        </nav>
-    </header>
-    
+  <header>
+    <img src="images/emblemmatic-anchorman-logo-69.png" id = "logo" alt="Channel 4 News">
+    <nav>
+      <ul id="navbar">
+        <li class="navbarli"><a href="#/feed">Home</a></li>
+        <li class="navbarli"><a href="#/interests">Interests</a></li>
+        <li class="navbarli"><a href="#/saved">Saved</a></li>
+      </ul>
+    </nav>
+  </header>
+
     <div id="content" ng-view>
        <h1>test</h1>
     </div>
 
-    
 </body>
 
 </html>
