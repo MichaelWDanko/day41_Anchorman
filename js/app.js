@@ -73,6 +73,10 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
 /*Create a controller for the Interests page*/
 app.controller('InterestViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     console.log('InterestViewController View');
+
+    $scope.saveInterest = function (interest) {
+      console.log('Interest saved!');
+    };
 }]);
 
 /*Create a controller for the Saved page*/
@@ -90,6 +94,7 @@ app.factory('NewsService', function ($http) {
     let stories = [];
     let savedStories = [];
     let publishers = [];
+    let interests = [];
 
     /*Any data we need to store can go in here.*/
     $http({
@@ -133,6 +138,9 @@ app.factory('NewsService', function ($http) {
         getPublishers: function () {
             console.log('GetPublishers');
             return publishers;
+        },
+        saveInterest: function (interest) {
+          
         }
     };
 
