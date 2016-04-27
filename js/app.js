@@ -36,7 +36,18 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
 
+    $scope.isInteresting = function (article) {
+        for (var i = 0; i < NewsService.getInterests().length; i++) {
+            if (article.title.indexOf(NewsService.getInterests()[i]) !== -1) {
+                return true;
+
+            }
+        }
+        return false;
+    };
+
     /*$scope.articles is the array of the articles*/
+
     $scope.articles = NewsService.getArticles();
     //$scope.articles = NewsService.getArticles().then(function (response) NewsService.showInterest(response) );
 
@@ -44,7 +55,7 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
     $scope.saveArticle = function (article) {
         NewsService.saveArticle(article);
     };
-    $scope.time = function(){
+    $scope.time = function () {
 
     };
 
