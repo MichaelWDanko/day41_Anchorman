@@ -17,8 +17,6 @@ module.exports = (function () {
                 url: 'http://chat.queencityiron.com/api/news/latest',
             })
             .then(function (response) {
-                console.log('Response of stories');
-                console.log(response);
                 angular.copy(response.data.stories, stories);
             });
 
@@ -28,8 +26,6 @@ module.exports = (function () {
                     url: 'http://chat.queencityiron.com/api/publishers'
                 })
                 .then(function (response) {
-                    console.log('Publisher response');
-                    console.log(response);
                     angular.copy(response.data.providers, publishers);
                 });
         }
@@ -64,7 +60,7 @@ module.exports = (function () {
                 //                console.log(list);
                 //                console.log('Display the interests below');
                 //                console.log(interests);
-                //                
+                //
                 console.log('length:');
                 console.log(list.length);
                 console.log(interests.length);
