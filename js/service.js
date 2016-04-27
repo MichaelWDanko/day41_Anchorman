@@ -22,13 +22,13 @@ module.exports = (function () {
                 for (var i = 0; i < response.data.stories.length; i++) {
                     response.data.stories[i].allcaps = response.data.stories[i].title.toLowerCase();
                 }
-            return response.data.stories;
+                return response.data.stories;
             })
             .then(function (response) {
-              for (var i = 0; i < response.length; i++) {
-                response[i].time = moment(response[i].published).fromNow();
-              }
-              return response;
+                for (var i = 0; i < response.length; i++) {
+                    response[i].time = moment(response[i].published).fromNow();
+                }
+                return response;
             })
             .then(function (response) {
                 angular.copy(response, stories);
@@ -61,7 +61,10 @@ module.exports = (function () {
                 return publishers;
             },
             saveInterest: function (interest) {
-                interests.push(interest);
+                if (interests.indexOf(interest) === -1) {
+                    interests.push(interest);
+                    console.log('Interest added');
+                }
             },
             getInterests: function () {
                 return interests;
