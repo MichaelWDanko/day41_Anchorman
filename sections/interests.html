@@ -6,7 +6,7 @@
   <button type="search" ng-click="saveInterest()" id="savebutton">Save</button>
   <h2 id="existing">Current Interests:</h2>
   <ul>
-    <li id = "interestlist" ng-repeat="interest in interests">
+    <li id = "interestlist" ng-repeat="interest in interests track by $index">
       <h3><button id="intbtn" ng-click="removeInterest(interest)">&#10007</button>&nbsp&nbsp{{ interest }}</h3>
     </li>
   </ul>
