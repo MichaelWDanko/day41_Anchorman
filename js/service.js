@@ -1,5 +1,6 @@
 /* jslint browser: true */
 /* jslint esnext: true */
+var moment = require('moment');
 module.exports = (function () {
 
     var service = angular.module('NewsService', []);
@@ -23,6 +24,12 @@ module.exports = (function () {
                     response.data.stories[i].allcaps = response.data.stories[i].title.toUpperCase();
                 }
             return response.data.stories;
+            })
+            .then(function (response) {
+              for (var i = 0; i < response.length; i++) {
+                response[i].time = moment(response[i].published).fromNow();
+              }
+              return response;
             })
             .then(function (response) {
             console.log(response);

@@ -5,7 +5,7 @@
     <div ng-class="isInteresting(article) ? '' : 'hidden' " class="interested" id="{{article.id}}" ng-model="articleInterest"><span>You may be interested in this</span></div>
     <a href="{{article.link}}" target="_blank"><h2 class="articletitle">{{ article.title }}</h2></a>
     <h2>{{ article.providerId | publisherName }}</h2>
-    <h3>{{ article.published }}</h3>
+    <h3>{{ article.time }}</h3>
     <button class="save-button" ng-click="saveArticle(article)">Save For Later</button>
     <p>
         {{ article.description }}
