@@ -17,8 +17,19 @@ module.exports = (function () {
                 url: 'http://chat.queencityiron.com/api/news/latest',
             })
             .then(function (response) {
-                angular.copy(response.data.stories, stories);
+                console.log('And thennnnn');
+                console.log(response.data.stories.length);
+                for (var i = 0; i < response.data.stories.length; i++) {
+                    response.data.stories[i].allcaps = response.data.stories[i].title.toUpperCase();
+                }
+            return response.data.stories;
+            })
+            .then(function (response) {
+            console.log(response);
+                angular.copy(response, stories);
+                return response;
             });
+
 
         if (publishers.length === 0) {
             $http({
@@ -69,12 +80,12 @@ module.exports = (function () {
                     for (var x = 0; x < interests.length; x++) {
                         //                       console.log('We made it');
                         if (list[i].title.indexOf(interests[x]) !== -1) {
-//                            var multibutton = angular.element(element.getElementsByClassName(".multi-files"));
-//                            var id = angular.element(element.getElementById("#hidden"));
+                            //                            var multibutton = angular.element(element.getElementsByClassName(".multi-files"));
+                            //                            var id = angular.element(element.getElementById("#hidden"));
                             console.log('Found one!');
                             console.log(list[i]);
                             console.log(list[i].id);
-//                            console.log(angular.element('#list[i].id'));
+                            //                            console.log(angular.element('#list[i].id'));
                             angular.element('list[i].id').removeClass('hidden');
                         }
                     }
