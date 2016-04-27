@@ -59,7 +59,7 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
 app.controller('InterestViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     $scope.interests = NewsService.getInterests();
     $scope.saveInterest = function () {
-        NewsService.saveInterest(document.getElementById('text-box').value.toUpperCase());
+        NewsService.saveInterest(document.getElementById('text-box').value.toLowerCase());
 
     };
     $scope.removeInterest = function (interest) {

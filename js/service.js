@@ -18,10 +18,9 @@ module.exports = (function () {
                 url: 'http://chat.queencityiron.com/api/news/latest',
             })
             .then(function (response) {
-                console.log('And thennnnn');
                 console.log(response.data.stories.length);
                 for (var i = 0; i < response.data.stories.length; i++) {
-                    response.data.stories[i].allcaps = response.data.stories[i].title.toUpperCase();
+                    response.data.stories[i].allcaps = response.data.stories[i].title.toLowerCase();
                 }
             return response.data.stories;
             })
@@ -32,11 +31,9 @@ module.exports = (function () {
               return response;
             })
             .then(function (response) {
-            console.log(response);
                 angular.copy(response, stories);
                 return response;
             });
-
 
         if (publishers.length === 0) {
             $http({
@@ -64,15 +61,33 @@ module.exports = (function () {
                 return publishers;
             },
             saveInterest: function (interest) {
-//                var uppercase = interest.toUpperCase();
                 interests.push(interest);
-                console.log(interests);
             },
             getInterests: function () {
                 return interests;
             },
             removeInterest: function (value) {
                 interests.splice(interests.indexOf(value), 1);
+            },
+            showInterest: function (list, interests) {
+                console.log('length:');
+                console.log(list.length);
+                console.log(interests.length);
+
+                for (var i = 0; i < list.length; i++) {
+                    for (var x = 0; x < interests.length; x++) {
+                        //                       console.log('We made it');
+                        if (list[i].title.indexOf(interests[x]) !== -1) {
+                            //                            var multibutton = angular.element(element.getElementsByClassName(".multi-files"));
+                            //                            var id = angular.element(element.getElementById("#hidden"));
+                            console.log('Found one!');
+                            console.log(list[i]);
+                            console.log(list[i].id);
+                            //                            console.log(angular.element('#list[i].id'));
+                            angular.element('list[i].id').removeClass('hidden');
+                        }
+                    }
+                }
             },
         };
     });
