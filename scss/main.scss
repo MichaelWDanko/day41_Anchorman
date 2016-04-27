@@ -32,6 +32,11 @@ body {
   height: auto;
   padding: .7%;
   padding-right: 1%;
+  box-shadow: inset 0 0 0 0 $main-dark;
+  transition: all ease 0.7s;
+}
+#logo:hover {
+  box-shadow: inset 0 100px 0 0 $second-dark;
 }
 .navbarli a {
   display: block;
