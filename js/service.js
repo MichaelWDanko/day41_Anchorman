@@ -72,32 +72,6 @@ module.exports = (function () {
             removeInterest: function (value) {
                 interests.splice(interests.indexOf(value), 1);
             },
-            showInterest: function (list, interests) {
-                //                console.log('show interest is running');
-                //                console.log("Display the list below");
-                //                console.log(list);
-                //                console.log('Display the interests below');
-                //                console.log(interests);
-                //
-                console.log('length:');
-                console.log(list.length);
-                console.log(interests.length);
-
-                for (var i = 0; i < list.length; i++) {
-                    for (var x = 0; x < interests.length; x++) {
-                        //                       console.log('We made it');
-                        if (list[i].title.indexOf(interests[x]) !== -1) {
-                            //                            var multibutton = angular.element(element.getElementsByClassName(".multi-files"));
-                            //                            var id = angular.element(element.getElementById("#hidden"));
-                            console.log('Found one!');
-                            console.log(list[i]);
-                            console.log(list[i].id);
-                            //                            console.log(angular.element('#list[i].id'));
-                            angular.element('list[i].id').removeClass('hidden');
-                        }
-                    }
-                }
-            },
         };
     });
 }());
