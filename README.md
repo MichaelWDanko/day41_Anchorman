@@ -9,7 +9,7 @@ The app contains three seperate views:
   - A banner denotes which articles could be of interest to the user, which is set by the user in the Interests view
 - Interests
   - Lets the user create a list of interests that are used to mark the Main Feed's articles
-  - Interest can be added or deleted to the list
+  - Interests can be added or deleted to the list at any time
 - Saved
   - Lists the user's saved articles
 
