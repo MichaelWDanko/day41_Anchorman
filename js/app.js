@@ -38,9 +38,8 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
 
     $scope.isInteresting = function (article) {
         for (var i = 0; i < NewsService.getInterests().length; i++) {
-            if (article.title.indexOf(NewsService.getInterests()[i]) !== -1) {
+            if (article.allcaps.indexOf(NewsService.getInterests()[i]) !== -1) {
                 return true;
-
             }
         }
         return false;
@@ -49,22 +48,11 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
     /*$scope.articles is the array of the articles*/
 
     $scope.articles = NewsService.getArticles();
-    //$scope.articles = NewsService.getArticles().then(function (response) NewsService.showInterest(response) );
 
     /*$scope.saveArticle is run when the save button is clicked.*/
     $scope.saveArticle = function (article) {
         NewsService.saveArticle(article);
     };
-    $scope.time = function () {
-
-    };
-
-    /* I'm passing in a function 'NewsService.getArticles()
-    so we can use the 'NewsService.showInterest()'
-    in the InterestViewController */
-    $scope.interests = NewsService.getInterests();
-    NewsService.showInterest($scope.articles, $scope.interests);
-
 }]);
 
 /*Create a controller for the Interests page*/
