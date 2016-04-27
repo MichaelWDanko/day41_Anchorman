@@ -4,6 +4,7 @@
 $main-dark: #bd1826;
 $second-dark: #830e18;
 $main-light: #c8d1d2;
+$second: #6a37a3;
 
 html {
   font-family: 'Libre Baskerville', serif;
@@ -154,12 +155,13 @@ input {
 .interested {
     font-family: 'Libre Baskerville', serif;
     font-size: 14px;
-    background-color: lightcoral;
+    background-color: $second;
     margin: 0;
     padding: 5px;
     text-align: center;
     text-transform: uppercase;
-    color: $second-dark;
+    color: white;
+    border-radius: 3px;
 }
 .hidden {
     display: none;
