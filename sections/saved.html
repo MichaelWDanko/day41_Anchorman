@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+<!-- The Saved View -->
 <h1 class="pageheader">Saved</h1>
 <div class="article" ng-repeat="saved in articles">
-    <a href="{{saved.link}}"><h2 class="articletitle">{{ saved.title }}</h2></a>
+    <a href="{{saved.link}}" target="_blank"><h2 class="articletitle">{{ saved.title }}</h2></a>
   <h2>{{ saved.providerId | publisherName }}</h2>
   <h3>{{ saved.published }}</h3>
   <p>
     {{ saved.description }}
   </p>
 </div>
-<!-- No saved needed, but we need to include whether they are still an "interest" -->
+<!-- We need to include whether they are still an "interest" -->

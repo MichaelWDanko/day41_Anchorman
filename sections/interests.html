@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!-- The Interests View -->
 <h1 class="pageheader">Interests</h1>
 <div id="interestmain">
-  <h2>Interest Label:</h2><input id="text-box" type="text"/>
-  <button type="search" ng-click="saveInterest()">Save</button>
-  <h2>Existing Labels:</h2>
+  <input id="text-box" type="text" placeholder="Do you have any interests?"/>
+  <button type="search" ng-click="saveInterest()" id="savebutton">Save</button>
+  <h2 id="existing">Current Interests:</h2>
   <ul>
     <li id = "interestlist" ng-repeat="interest in interests">
       <h3><button id="intbtn" ng-click="removeInterest(interest)">&#10007</button>&nbsp&nbsp{{ interest }}</h3>
