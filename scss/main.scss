@@ -25,17 +25,13 @@ body {
   display: inline;
   float: left;
 }
-#anchorman a {
-  text-transform: uppercase;
+#logo {
   float: right;
   display: inline;
-  font-size: 15px;
-  color: white;
-  text-align: center;
-  padding: 18px 20px;
-}
-#anchorman a::first-letter {
-  font-size: 20px;
+  width: 180px;
+  height: auto;
+  padding: .7%;
+  padding-right: 1%;
 }
 .navbarli a {
   display: block;
