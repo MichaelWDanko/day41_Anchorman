@@ -64,7 +64,9 @@ module.exports = (function () {
                 return publishers;
             },
             saveInterest: function (interest) {
+//                var uppercase = interest.toUpperCase();
                 interests.push(interest);
+                console.log(interests);
             },
             getInterests: function () {
                 return interests;
