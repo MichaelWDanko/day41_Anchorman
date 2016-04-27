@@ -8,10 +8,10 @@ require('./filters');
 
 var app = angular.module('NewsFeedApp', ['ngRoute', 'publisherName', 'NewsService']);
 
-app.filter('reverse', function() {
-  return function(items) {
-    return items.slice().reverse();
-  };
+app.filter('reverse', function () {
+    return function (items) {
+        return items.slice().reverse();
+    };
 });
 
 /*Create a router*/
@@ -39,6 +39,7 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
 
     /*$scope.articles is the array of the articles*/
     $scope.articles = NewsService.getArticles();
+//    $scope.articles = NewsService.getArticles().then(function (response) NewsService.showInterest(response) );
 
     /*$scope.saveArticle is run when the save button is clicked.*/
     $scope.saveArticle = function (article) {
@@ -47,7 +48,12 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
         NewsService.saveArticle(article);
     };
 
-    //$scope.publisher = NewsService.getPublishers();
+    /* I'm passing in a function 'NewsService.getArticles()
+    so we can use the 'NewsService.showInterest()' 
+    in the InterestViewController */
+    $scope.interests = NewsService.getInterests();
+    NewsService.showInterest($scope.articles, $scope.interests);
+
 }]);
 
 /*Create a controller for the Interests page*/
@@ -55,12 +61,12 @@ app.controller('InterestViewController', ['$scope', '$http', 'NewsService', func
     console.log('InterestViewController View');
 
     $scope.interests = NewsService.getInterests();
-    $scope.saveInterest = function(){
-      NewsService.saveInterest(document.getElementById('text-box').value);
+    $scope.saveInterest = function () {
+        NewsService.saveInterest(document.getElementById('text-box').value);
     };
-    $scope.removeInterest = function(interest){
-      console.log(interest);
-      NewsService.removeInterest(interest);
+    $scope.removeInterest = function (interest) {
+        console.log(interest);
+        NewsService.removeInterest(interest);
     };
 }]);
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <h1 class="pageheader">Main Feed</h1>
-<div class="article" ng-repeat="article in articles | reverse">
+<div class="article"  ng-repeat="article in articles | reverse">
+    <div class="articleStatus(hidden) interested" id="{{article.id}}"><span>You may be interested in this</span></div>
     <a href="{{article.link}}"><h2 class="articletitle">{{ article.title }}</h2></a>
     <h2>{{ article.providerId | publisherName }}</h2>
     <h3>{{ article.published }}</h3>
