@@ -10,6 +10,7 @@ The app contains three seperate views:
 - Interests
   - Lets the user create a list of interests that are used to mark the Main Feed's articles
   - Interests can be added or deleted to the list at any time
+  - Interests are not case sensitive. An interest will be altered to display correctly. 
 - Saved
   - Lists the user's saved articles
 

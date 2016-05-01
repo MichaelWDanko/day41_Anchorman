@@ -51,29 +51,28 @@ module.exports = (function () {
             },
             saveArticle: function (article) {
                 /*Write code to push the saved article to an array.*/
-//                console.log('saveArticle is starting');
-//                console.log(article);
-//                var tempSaved = [];
-//                if (savedStories.length === 0) {
-//                    savedStories.push(article);
-//                    console.log('saved dat 1st shit');
-//                    angular.copy(savedStories, tempSaved);
-//                } else {
-//                    //                    angular.copy(savedStories, tempSaved);
-//                    var length = savedStories.length;
-//                    console.log('The length is: ' + length);
-//                    for (var i = 0; i < length;) {
-//                        if (savedStories[i] === article) {
-//                            savedStories.push(article);
-//                            console.log('Article saved');
-//                        } else {
-//                            console.log('Cant add article');
-//                        }
-//                    }
-//                }
+                //                console.log('saveArticle is starting');
+                //                console.log(article);
+                //                var tempSaved = [];
+                //                if (savedStories.length === 0) {
+                //                    savedStories.push(article);
+                //                    console.log('saved dat 1st shit');
+                //                    angular.copy(savedStories, tempSaved);
+                //                } else {
+                //                    //                    angular.copy(savedStories, tempSaved);
+                //                    var length = savedStories.length;
+                //                    console.log('The length is: ' + length);
+                //                    for (var i = 0; i < length;) {
+                //                        if (savedStories[i] === article) {
+                //                            savedStories.push(article);
+                //                            console.log('Article saved');
+                //                        } else {
+                //                            console.log('Cant add article');
+                //                        }
+                //                    }
+                //                }
 
                 savedStories.push(article);
-                console.log('Article saved');
             },
             getSavedArticles: function () {
                 return savedStories;
@@ -85,7 +84,7 @@ module.exports = (function () {
             saveInterest: function (interest) {
                 if (interests.indexOf(interest) === -1) {
                     interests.push(interest);
-                    console.log('Interest added');
+
                 }
             },
             getInterests: function () {
@@ -95,20 +94,10 @@ module.exports = (function () {
                 interests.splice(interests.indexOf(value), 1);
             },
             showInterest: function (list, interests) {
-                console.log('length:');
-                console.log(list.length);
-                console.log(interests.length);
 
                 for (var i = 0; i < list.length; i++) {
                     for (var x = 0; x < interests.length; x++) {
-                        //                       console.log('We made it');
                         if (list[i].title.indexOf(interests[x]) !== -1) {
-                            //                            var multibutton = angular.element(element.getElementsByClassName(".multi-files"));
-                            //                            var id = angular.element(element.getElementById("#hidden"));
-                            console.log('Found one!');
-                            console.log(list[i]);
-                            console.log(list[i].id);
-                            //                            console.log(angular.element('#list[i].id'));
                             angular.element('list[i].id').removeClass('hidden');
                         }
                     }
