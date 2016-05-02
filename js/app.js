@@ -34,8 +34,11 @@ app.config(['$routeProvider', function ($routeProvider) {
         });
 }]);
 
+/*This is the controller for the initial News Feed.*/
 app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
 
+    /*This is the $scope that works with the ng-class of the newsfeed 
+    to display whether or not an article should be marked*/
     $scope.isInteresting = function (article) {
         for (var i = 0; i < NewsService.getInterests().length; i++) {
             if (article.allcaps.indexOf(NewsService.getInterests()[i]) !== -1) {
@@ -46,7 +49,6 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
     };
 
     /*$scope.articles is the array of the articles*/
-
     $scope.articles = NewsService.getArticles();
 
     /*$scope.saveArticle is run when the save button is clicked.*/
@@ -55,19 +57,18 @@ app.controller('FeedViewController', ['$scope', '$http', 'NewsService', function
     };
 }]);
 
-/*Create a controller for the Interests page*/
+/*This is the controller for the initial page to add Interests.*/
 app.controller('InterestViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     $scope.interests = NewsService.getInterests();
     $scope.saveInterest = function () {
         NewsService.saveInterest(document.getElementById('text-box').value.toLowerCase());
-
     };
     $scope.removeInterest = function (interest) {
         NewsService.removeInterest(interest);
     };
 }]);
 
-/*Create a controller for the Saved page*/
+/*This is a page for the list of saved articles.*/
 app.controller('SavedViewController', ['$scope', '$http', 'NewsService', function ($scope, $http, NewsService) {
     $scope.articles = NewsService.getSavedArticles();
 }]);

@@ -14,8 +14,7 @@ module.exports = (function () {
                     return publishers[i].name;
                 }
             }
-            return 'loading...';
+            return 'Loading...';
         };
     }]);
-
 }());
