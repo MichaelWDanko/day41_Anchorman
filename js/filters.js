@@ -6,7 +6,7 @@ module.exports = (function () {
     var filters = angular.module('publisherName', []);
 
     filters.filter('publisherName', ['NewsService', function (NewsService) {
-        let publishers = NewsService.getPublishers();
+        var publishers = NewsService.getPublishers();
 
         return function (id) {
             for (let i = 0; i < publishers.length; i++) {
