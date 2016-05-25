@@ -7,10 +7,10 @@ module.exports = (function () {
 
     service.factory('NewsService', function ($http) {
 
-        let stories = [];
-        let savedStories = [];
-        let publishers = [];
-        let interests = [];
+        var stories = [];
+        var savedStories = [];
+        var publishers = [];
+        var interests = [];
 
         /*Any data we need to store can go in here.*/
         $http({
@@ -51,27 +51,6 @@ module.exports = (function () {
             },
             saveArticle: function (article) {
                 /*Write code to push the saved article to an array.*/
-                //                console.log('saveArticle is starting');
-                //                console.log(article);
-                //                var tempSaved = [];
-                //                if (savedStories.length === 0) {
-                //                    savedStories.push(article);
-                //                    console.log('saved dat 1st shit');
-                //                    angular.copy(savedStories, tempSaved);
-                //                } else {
-                //                    //                    angular.copy(savedStories, tempSaved);
-                //                    var length = savedStories.length;
-                //                    console.log('The length is: ' + length);
-                //                    for (var i = 0; i < length;) {
-                //                        if (savedStories[i] === article) {
-                //                            savedStories.push(article);
-                //                            console.log('Article saved');
-                //                        } else {
-                //                            console.log('Cant add article');
-                //                        }
-                //                    }
-                //                }
-
                 savedStories.push(article);
             },
             getSavedArticles: function () {

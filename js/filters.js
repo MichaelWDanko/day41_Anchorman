@@ -9,7 +9,7 @@ module.exports = (function () {
         var publishers = NewsService.getPublishers();
 
         return function (id) {
-            for (let i = 0; i < publishers.length; i++) {
+            for (var i = 0; i < publishers.length; i++) {
                 if (publishers[i].id === id) {
                     return publishers[i].name;
                 }
